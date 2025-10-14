@@ -3,7 +3,9 @@ import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import PropertyCard from '../components/PropertyCard';
-import AboutSection from '../components/AboutSection'; // <-- import AboutSection
+import AboutSection from '../components/AboutSection';
+import ServicesSection from '../components/ServicesSection';
+import BlogSection from '../components/BlogSection'; // <-- Import BlogSection
 
 const Home = () => {
   const [searchState, setSearchState] = useState({
@@ -36,7 +38,13 @@ const Home = () => {
         />
 
         {/* About Section */}
-        <AboutSection />  {/* <-- AboutSection inserted here */}
+        <AboutSection />
+
+        {/* Services Section */}
+        <ServicesSection />
+
+        {/* Blog Section */}
+        <BlogSection /> {/* <-- Added BlogSection */}
 
         {/* Featured Listings */}
         <section className="container mx-auto max-w-7xl py-20 px-4">
