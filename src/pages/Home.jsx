@@ -6,6 +6,8 @@ import PropertyCard from '../components/PropertyCard';
 import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
 import BlogSection from '../components/BlogSection';
+import PricingSection from '../components/PricingSection';
+
 
 const Home = () => {
   const [searchState, setSearchState] = useState({
@@ -29,6 +31,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50 font-sans scroll-smooth">
       <Navbar />
+
       <main>
         {/* Hero Section */}
         <section id="home">
@@ -77,7 +80,15 @@ const Home = () => {
             />
           </div>
         </section>
+
+        {/* Pricing Section (after Featured Listings) */}
+        <section id="pricing">
+          <PricingSection />
+        </section>
+
+       
       </main>
+
       <Footer />
     </div>
   );

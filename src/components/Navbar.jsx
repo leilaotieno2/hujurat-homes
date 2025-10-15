@@ -1,10 +1,29 @@
 import React, { useState } from 'react';
-import { Home, Menu, ListPlus, LogIn, X, Users, BookOpen, Mail, DollarSign as PriceIcon } from 'lucide-react';
-import { NAV_LINKS } from '../utils/constants';
+import { Home, Users, ListPlus, BookOpen, DollarSign, Mail, Menu, X, LogIn } from 'lucide-react';
 import Logo from './Logo';
+
+// Navbar links with hrefs matching section IDs
+const NAV_LINKS = [
+  { name: 'Home', icon: Home, href: '#home' },
+  { name: 'About', icon: Users, href: '#about' },
+  { name: 'Services', icon: ListPlus, href: '#services' },
+  { name: 'Blog', icon: BookOpen, href: '#blog' },
+  { name: 'Pricing', icon: DollarSign, href: '#pricing' },
+  { name: 'Contact', icon: Mail, href: '#contact' },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleScroll = (e, href) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false); // close mobile menu after click
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md transition-shadow duration-300">
@@ -16,7 +35,8 @@ const Navbar = () => {
           {NAV_LINKS.map((link) => (
             <a
               key={link.name}
-              href={link.name.toLowerCase() === 'home' ? '#home' : `#${link.name.toLowerCase()}`}
+              href={link.href}
+              onClick={(e) => handleScroll(e, link.href)}
               className="text-gray-600 hover:text-green-600 transition duration-150 font-medium text-sm px-2 py-1"
             >
               {link.name}
@@ -50,9 +70,9 @@ const Navbar = () => {
             {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
-                href={link.name.toLowerCase() === 'home' ? '#home' : `#${link.name.toLowerCase()}`}
+                href={link.href}
+                onClick={(e) => handleScroll(e, link.href)}
                 className="flex items-center space-x-3 p-3 text-gray-700 hover:bg-green-50 rounded-md transition duration-150"
-                onClick={() => setIsMenuOpen(false)}
               >
                 <link.icon size={18} className="text-green-600" />
                 <span>{link.name}</span>
