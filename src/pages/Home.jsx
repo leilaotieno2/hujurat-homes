@@ -7,7 +7,7 @@ import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
 import BlogSection from '../components/BlogSection';
 import PricingSection from '../components/PricingSection';
-
+import Contactus from '../components/Contactus';
 
 const Home = () => {
   const [searchState, setSearchState] = useState({
@@ -86,7 +86,10 @@ const Home = () => {
           <PricingSection />
         </section>
 
-       
+        {/* Contact Section */}
+        <section id="contact">
+          <Contactus />
+        </section>
       </main>
 
       <Footer />
