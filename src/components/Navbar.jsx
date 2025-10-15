@@ -16,7 +16,7 @@ const Navbar = () => {
           {NAV_LINKS.map((link) => (
             <a
               key={link.name}
-              href={`#${link.name.toLowerCase()}`}
+              href={link.name.toLowerCase() === 'home' ? '#home' : `#${link.name.toLowerCase()}`}
               className="text-gray-600 hover:text-green-600 transition duration-150 font-medium text-sm px-2 py-1"
             >
               {link.name}
@@ -50,7 +50,7 @@ const Navbar = () => {
             {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
-                href={`#${link.name.toLowerCase()}`}
+                href={link.name.toLowerCase() === 'home' ? '#home' : `#${link.name.toLowerCase()}`}
                 className="flex items-center space-x-3 p-3 text-gray-700 hover:bg-green-50 rounded-md transition duration-150"
                 onClick={() => setIsMenuOpen(false)}
               >

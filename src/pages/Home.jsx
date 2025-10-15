@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import PropertyCard from '../components/PropertyCard';
 import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
-import BlogSection from '../components/BlogSection'; // <-- Import BlogSection
+import BlogSection from '../components/BlogSection';
 
 const Home = () => {
   const [searchState, setSearchState] = useState({
@@ -27,27 +27,35 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans scroll-smooth">
       <Navbar />
       <main>
         {/* Hero Section */}
-        <HeroSection
-          searchState={searchState}
-          handleSearchChange={handleSearchChange}
-          handleSearchSubmit={handleSearchSubmit}
-        />
+        <section id="home">
+          <HeroSection
+            searchState={searchState}
+            handleSearchChange={handleSearchChange}
+            handleSearchSubmit={handleSearchSubmit}
+          />
+        </section>
 
         {/* About Section */}
-        <AboutSection />
+        <section id="about">
+          <AboutSection />
+        </section>
 
         {/* Services Section */}
-        <ServicesSection />
+        <section id="services">
+          <ServicesSection />
+        </section>
 
         {/* Blog Section */}
-        <BlogSection /> {/* <-- Added BlogSection */}
+        <section id="blog">
+          <BlogSection />
+        </section>
 
         {/* Featured Listings */}
-        <section className="container mx-auto max-w-7xl py-20 px-4">
+        <section id="listings" className="container mx-auto max-w-7xl py-20 px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">
             Featured Listings
           </h2>
